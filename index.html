@@ -1,32 +1,563 @@
-<!doctype html>
-<html lang="hi">
-<head>
-  <meta charset="utf-8">
-  <title>Image Notepad</title>
-  <style>
-    body{font-family:sans-serif;background:#f5f7fa;margin:0;padding:20px;}
-    h1{margin-top:0;}
-    #editor{width:100%;min-height:300px;padding:10px;border:1px solid #ccc;
-            border-radius:8px;background:#fff;}
-    .toolbar{margin-bottom:10px;}
-    button,input{margin:5px;padding:6px 10px;border-radius:6px;border:1px solid #888;cursor:pointer;}
-    #notesList{margin-top:20px;}
-    .note-item{background:#fff;border:1px solid #ddd;padding:10px;border-radius:8px;margin-bottom:10px;}
-    img{max-width:100%;border-radius:6px;margin:5px 0;}
-  </style>
-</head>
-<body>
-  <h1>📝 ROYAL YADAV (INVESTER&TRADER)</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Govind Kumar is a cloud engineer building secure, scalable, and automated infrastructure with AWS, DevOps, Terraform, and Linux."
+    />
+    <meta name="theme-color" content="#0B1120" />
+    <title>Govind Kumar | Cloud Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="loader" aria-hidden="true">
+      <div class="loader-ring"></div>
+    </div>
 
-  <div class="toolbar">
-    <input type="text" id="title" placeholder="Note Title">
-    <input type="file" id="imgInput" accept="image/*">
-    <button id="insertImg">Insert Image</button>
-    <button id="saveBtn">Save Note</button>
-  </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"></div>
+    <canvas id="particles" aria-hidden="true"></canvas>
 
-  <div id="editor" contenteditable="true">
-   
-  </div>
+    <header class="site-header">
+      <a class="brand" href="#home">GK</a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </header>
 
-  <h2>📂
+    <main>
+      <section class="hero container" id="home">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Premium Cloud Engineering Portfolio</p>
+          <h1>Govind Kumar</h1>
+          <div class="typing-wrap">
+            <span id="typed-text"></span>
+            <span class="typing-cursor">|</span>
+          </div>
+          <p class="hero-description">
+            I design secure, scalable, and automated cloud infrastructure using AWS,
+            DevOps tools, Infrastructure as Code, and Linux administration.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="data:text/plain;charset=utf-8,Name%3A%20Govind%20Kumar%0ARole%3A%20Cloud%20Engineer%0AEmail%3A%20govind@example.com"
+              download="Govind_Kumar_Resume.txt"
+            >
+              Download Resume
+            </a>
+            <a class="btn btn-secondary" href="#projects">View Projects</a>
+            <a class="btn btn-outline" href="#contact">Contact Me</a>
+          </div>
+          <div class="hero-metrics">
+            <div>
+              <strong>12+</strong>
+              <span>Cloud Projects</span>
+            </div>
+            <div>
+              <strong>6</strong>
+              <span>Certifications</span>
+            </div>
+            <div>
+              <strong>1000+</strong>
+              <span>Hours Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="glass-card profile-card">
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Crect width='320' height='320' rx='36' fill='%230b1120'/%3E%3Ccircle cx='160' cy='132' r='72' fill='%2300C2FF' fill-opacity='0.95'/%3E%3Ccircle cx='160' cy='228' r='112' fill='%234F46E5' fill-opacity='0.8'/%3E%3Ctext x='160' y='188' text-anchor='middle' font-size='68' font-family='Poppins, Arial' fill='white'%3EGK%3C/text%3E%3C/svg%3E"
+              alt="Portrait placeholder for Govind Kumar"
+            />
+            <div class="badge-row">
+              <span class="pill">AWS</span>
+              <span class="pill">DevOps</span>
+              <span class="pill">Linux</span>
+            </div>
+            <div class="floating-icon cloud">☁️</div>
+            <div class="floating-icon cube">🧩</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about container reveal" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">About Me</p>
+          <h2>Building reliable cloud systems with automation at the core.</h2>
+        </div>
+        <div class="about-grid">
+          <div class="glass-card about-card">
+            <h3>Introduction</h3>
+            <p>
+              I am a cloud engineer focused on creating secure, resilient, and
+              high-performance cloud ecosystems for modern businesses.
+            </p>
+          </div>
+          <div class="glass-card about-card">
+            <h3>Career Objective</h3>
+            <p>
+              To design scalable infrastructure that accelerates delivery while
+              keeping security, observability, and reliability at the forefront.
+            </p>
+          </div>
+          <div class="glass-card about-card">
+            <h3>Professional Summary</h3>
+            <p>
+              My work spans AWS, Terraform, Docker, Kubernetes, Linux, networking,
+              and CI/CD, with a strong preference for automation and repeatable
+              deployments.
+            </p>
+          </div>
+          <div class="glass-card about-card highlights">
+            <h3>Highlights</h3>
+            <ul>
+              <li>Cloud Infrastructure</li>
+              <li>Automation</li>
+              <li>Infrastructure as Code</li>
+              <li>Networking</li>
+              <li>Linux Administration</li>
+              <li>Problem Solving</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container reveal" id="skills">
+        <div class="section-heading">
+          <p class="eyebrow">Core Skills</p>
+          <h2>Technical expertise across cloud, automation, and operations.</h2>
+        </div>
+        <div class="skills-grid">
+          <article class="glass-card skill-card">
+            <div class="skill-icon">☁️</div>
+            <h3>Cloud</h3>
+            <p>AWS, Azure, Google Cloud</p>
+            <div class="progress"><span style="width: 90%"></span></div>
+          </article>
+          <article class="glass-card skill-card">
+            <div class="skill-icon">🖥️</div>
+            <h3>Compute</h3>
+            <p>EC2, Lambda, Elastic Beanstalk</p>
+            <div class="progress"><span style="width: 88%"></span></div>
+          </article>
+          <article class="glass-card skill-card">
+            <div class="skill-icon">🗄️</div>
+            <h3>Storage</h3>
+            <p>S3, EBS, EFS</p>
+            <div class="progress"><span style="width: 86%"></span></div>
+          </article>
+          <article class="glass-card skill-card">
+            <div class="skill-icon">🌐</div>
+            <h3>Networking</h3>
+            <p>VPC, Route 53, CloudFront</p>
+            <div class="progress"><span style="width: 84%"></span></div>
+          </article>
+          <article class="glass-card skill-card">
+            <div class="skill-icon">🔐</div>
+            <h3>Security</h3>
+            <p>IAM, Security Groups, NACL</p>
+            <div class="progress"><span style="width: 90%"></span></div>
+          </article>
+          <article class="glass-card skill-card">
+            <div class="skill-icon">⚙️</div>
+            <h3>DevOps</h3>
+            <p>Docker, Kubernetes, Terraform</p>
+            <div class="progress"><span style="width: 92%"></span></div>
+          </article>
+          <article class="glass-card skill-card">
+            <div class="skill-icon">🪟</div>
+            <h3>Operating Systems</h3>
+            <p>Linux, Ubuntu, CentOS</p>
+            <div class="progress"><span style="width: 87%"></span></div>
+          </article>
+          <article class="glass-card skill-card">
+            <div class="skill-icon">💻</div>
+            <h3>Programming</h3>
+            <p>Python, Bash, Git</p>
+            <div class="progress"><span style="width: 85%"></span></div>
+          </article>
+          <article class="glass-card skill-card">
+            <div class="skill-icon">🗃️</div>
+            <h3>Databases</h3>
+            <p>MySQL, monitoring tooling</p>
+            <div class="progress"><span style="width: 81%"></span></div>
+          </article>
+          <article class="glass-card skill-card">
+            <div class="skill-icon">📈</div>
+            <h3>Monitoring</h3>
+            <p>CloudWatch, Prometheus, Grafana</p>
+            <div class="progress"><span style="width: 83%"></span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section container reveal" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2>Selected cloud and automation implementations.</h2>
+        </div>
+        <div class="projects-grid">
+          <article class="glass-card project-card">
+            <div class="project-image">🏗️</div>
+            <h3>AWS Three-Tier Architecture</h3>
+            <p>Designed a secure multi-tier deployment with VPC, NAT, ALB, and RDS.</p>
+            <div class="chip-row">
+              <span>AWS</span><span>Terraform</span><span>Networking</span>
+            </div>
+            <div class="card-actions">
+              <a href="#">GitHub</a>
+              <a href="#">Live Demo</a>
+            </div>
+          </article>
+          <article class="glass-card project-card">
+            <div class="project-image">⚡</div>
+            <h3>Serverless Web Application</h3>
+            <p>Built a fast serverless web app with Lambda, API Gateway, and S3 hosting.</p>
+            <div class="chip-row">
+              <span>Lambda</span><span>API Gateway</span><span>Serverless</span>
+            </div>
+            <div class="card-actions">
+              <a href="#">GitHub</a>
+              <a href="#">Live Demo</a>
+            </div>
+          </article>
+          <article class="glass-card project-card">
+            <div class="project-image">🧱</div>
+            <h3>Terraform AWS Infrastructure</h3>
+            <p>Provisioned repeatable AWS environments with modular Terraform code.</p>
+            <div class="chip-row">
+              <span>Terraform</span><span>AWS</span><span>IAC</span>
+            </div>
+            <div class="card-actions">
+              <a href="#">GitHub</a>
+              <a href="#">Live Demo</a>
+            </div>
+          </article>
+          <article class="glass-card project-card">
+            <div class="project-image">🐳</div>
+            <h3>Dockerized Application</h3>
+            <p>Containerized a multi-service application and orchestrated deployment flows.</p>
+            <div class="chip-row">
+              <span>Docker</span><span>Kubernetes</span><span>CI/CD</span>
+            </div>
+            <div class="card-actions">
+              <a href="#">GitHub</a>
+              <a href="#">Live Demo</a>
+            </div>
+          </article>
+          <article class="glass-card project-card">
+            <div class="project-image">🔁</div>
+            <h3>CI/CD Pipeline</h3>
+            <p>Implemented automated build, test, and deployment workflows with GitHub Actions.</p>
+            <div class="chip-row">
+              <span>GitHub Actions</span><span>Automation</span><span>DevOps</span>
+            </div>
+            <div class="card-actions">
+              <a href="#">GitHub</a>
+              <a href="#">Live Demo</a>
+            </div>
+          </article>
+          <article class="glass-card project-card">
+            <div class="project-image">📊</div>
+            <h3>Cloud Monitoring Dashboard</h3>
+            <p>Visualized infrastructure health using Prometheus and Grafana dashboards.</p>
+            <div class="chip-row">
+              <span>Grafana</span><span>Prometheus</span><span>Monitoring</span>
+            </div>
+            <div class="card-actions">
+              <a href="#">GitHub</a>
+              <a href="#">Live Demo</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section container reveal" id="experience">
+        <div class="section-heading">
+          <p class="eyebrow">Experience Timeline</p>
+          <h2>Learning, hands-on work, and professional growth.</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="glass-card timeline-card">
+              <h3>Cloud Projects</h3>
+              <p>Built and deployed AWS-based systems focused on automation and reliability.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="glass-card timeline-card">
+              <h3>Internships</h3>
+              <p>Worked on practical infrastructure tasks and cloud migration experiments.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="glass-card timeline-card">
+              <h3>Training</h3>
+              <p>Continual learning in cloud architecture, networking, and automation best practices.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="glass-card timeline-card">
+              <h3>Hands-on Labs</h3>
+              <p>Completed practical labs in Docker, Terraform, Linux, and cloud security.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="glass-card timeline-card">
+              <h3>Certifications</h3>
+              <p>Keeping pace with cloud certifications and modern platform standards.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container reveal" id="certifications">
+        <div class="section-heading">
+          <p class="eyebrow">Certifications</p>
+          <h2>Professional credentials and learning milestones.</h2>
+        </div>
+        <div class="cert-grid">
+          <article class="glass-card cert-card">
+            <div class="cert-image">☁️</div>
+            <h3>AWS Cloud Practitioner</h3>
+            <p>Credential ID: AWS-CP-001</p>
+            <a href="#">Verify</a>
+          </article>
+          <article class="glass-card cert-card">
+            <div class="cert-image">🧠</div>
+            <h3>AWS Solutions Architect</h3>
+            <p>Credential ID: AWS-SA-002</p>
+            <a href="#">Verify</a>
+          </article>
+          <article class="glass-card cert-card">
+            <div class="cert-image">🧱</div>
+            <h3>Terraform Associate</h3>
+            <p>Credential ID: TF-ASSOC-003</p>
+            <a href="#">Verify</a>
+          </article>
+          <article class="glass-card cert-card">
+            <div class="cert-image">🐳</div>
+            <h3>Docker</h3>
+            <p>Credential ID: DOCKER-004</p>
+            <a href="#">Verify</a>
+          </article>
+          <article class="glass-card cert-card">
+            <div class="cert-image">🧾</div>
+            <h3>Linux</h3>
+            <p>Credential ID: LINUX-005</p>
+            <a href="#">Verify</a>
+          </article>
+          <article class="glass-card cert-card">
+            <div class="cert-image">🌩️</div>
+            <h3>Azure Fundamentals</h3>
+            <p>Credential ID: AZ-900-006</p>
+            <a href="#">Verify</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section container reveal" id="github-stats">
+        <div class="section-heading">
+          <p class="eyebrow">GitHub Activity</p>
+          <h2>Continuous learning and collaborative exploration.</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="glass-card stat-card">
+            <h3>GitHub Stats</h3>
+            <p>Active repositories and ongoing projects.</p>
+          </div>
+          <div class="glass-card stat-card">
+            <h3>Contribution Graph</h3>
+            <p>Consistent development patterns and regular commits.</p>
+          </div>
+          <div class="glass-card stat-card">
+            <h3>GitHub Streak</h3>
+            <p>Daily coding momentum and curiosity.</p>
+          </div>
+          <div class="glass-card stat-card">
+            <h3>Top Languages</h3>
+            <p>Python, Bash, and YAML lead the way.</p>
+          </div>
+          <div class="glass-card stat-card">
+            <h3>Recent Activity</h3>
+            <p>Infrastructure automation and cloud experiments.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container reveal" id="achievements">
+        <div class="section-heading">
+          <p class="eyebrow">Achievements</p>
+          <h2>Milestones that reflect steady growth and impact.</h2>
+        </div>
+        <div class="counter-grid">
+          <div class="glass-card counter-card">
+            <strong class="counter" data-target="20">0</strong>
+            <span>Projects Completed</span>
+          </div>
+          <div class="glass-card counter-card">
+            <strong class="counter" data-target="35">0</strong>
+            <span>Cloud Deployments</span>
+          </div>
+          <div class="glass-card counter-card">
+            <strong class="counter" data-target="6">0</strong>
+            <span>Certifications</span>
+          </div>
+          <div class="glass-card counter-card">
+            <strong class="counter" data-target="15">0</strong>
+            <span>GitHub Repositories</span>
+          </div>
+          <div class="glass-card counter-card">
+            <strong class="counter" data-target="1000">0</strong>
+            <span>Hours of Learning</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container reveal" id="resume">
+        <div class="section-heading">
+          <p class="eyebrow">Resume</p>
+          <h2>Professional overview available for review.</h2>
+        </div>
+        <div class="glass-card resume-card">
+          <h3>Cloud Engineer | Automation & Platform Focus</h3>
+          <p>
+            Experienced in building cloud-native infrastructure, DevOps pipelines,
+            and secure operations with a strong focus on reliability and speed.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="data:text/plain;charset=utf-8,Name%3A%20Govind%20Kumar%0ARole%3A%20Cloud%20Engineer%0AHighlights%3A%20AWS%2C%20Terraform%2C%20Linux%2C%20Automation" download="Govind_Kumar_Resume.txt">Download Resume</a>
+            <a class="btn btn-outline" href="#contact">Preview Resume</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Testimonials</p>
+          <h2>What peers and mentors often say.</h2>
+        </div>
+        <div class="testimonial-grid">
+          <div class="glass-card testimonial-card">
+            <p>“Govind brings clarity to complex architecture and makes automation feel approachable.”</p>
+            <strong>— Team Lead</strong>
+          </div>
+          <div class="glass-card testimonial-card">
+            <p>“Reliable, curious, and always looking for better ways to improve delivery.”</p>
+            <strong>— Mentor</strong>
+          </div>
+          <div class="glass-card testimonial-card">
+            <p>“Strong sense of ownership, especially around cloud security and operational excellence.”</p>
+            <strong>— Colleague</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container reveal" id="contact">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s build something reliable and scalable together.</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="glass-card contact-info">
+            <h3>Reach out</h3>
+            <ul>
+              <li>📧 govind@example.com</li>
+              <li>📱 +91 98765 43210</li>
+              <li>📍 Bengaluru, India</li>
+            </ul>
+            <div class="social-links">
+              <a href="#" aria-label="Email">✉️</a>
+              <a href="#" aria-label="Phone">📞</a>
+              <a href="#" aria-label="Location">📍</a>
+              <a href="#" aria-label="LinkedIn">💼</a>
+              <a href="#" aria-label="GitHub">🐙</a>
+              <a href="#" aria-label="Twitter">𝕏</a>
+              <a href="#" aria-label="LeetCode">🧠</a>
+              <a href="#" aria-label="HackerRank">🏁</a>
+            </div>
+          </div>
+          <form class="glass-card contact-form" id="contact-form">
+            <label>
+              Name
+              <input type="text" placeholder="Your name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" placeholder="Your email" required />
+            </label>
+            <label>
+              Phone
+              <input type="tel" placeholder="Phone number" />
+            </label>
+            <label>
+              Subject
+              <input type="text" placeholder="Project or opportunity" />
+            </label>
+            <label>
+              Message
+              <textarea rows="5" placeholder="Tell me about your idea"></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <p class="form-message" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <h3>Govind Kumar</h3>
+          <p>Cloud Engineer</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div>
+          <h4>Social</h4>
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+          <a href="#">X</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© 2026 Govind Kumar. All rights reserved.</p>
+        <a class="back-to-top" href="#home">Back to Top ↑</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
